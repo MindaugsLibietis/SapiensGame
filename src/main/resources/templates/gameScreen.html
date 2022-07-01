@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>gameScreen</title>
+</head>
+<body>
+<div>Sveiks,</div>
+<div th:text="${user.name}"></div>
+<div>Please enter 4 diggits: </div>
+<form action="play" method="post">
+    <input type="text" name="digit1"/>
+    <input type="text" name="digit2"/>
+    <input type="text" name="digit3"/>
+    <input type="text" name="digit4"/>
+    <input type="submit" value="Submit"/>
+</form>
+
+</body>
+</html>
