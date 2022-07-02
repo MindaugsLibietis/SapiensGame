@@ -25,6 +25,7 @@ public class PersonController {
         }
         @RequestMapping(value = "/play", method = RequestMethod.POST)
     public ModelAndView attempt(@ModelAttribute TheGame game) {
+        game.generateNumber();
         game.play();
         System.out.println("tiku sheit");
         ModelAndView modelAndView = new ModelAndView();
@@ -32,4 +33,5 @@ public class PersonController {
         modelAndView.addObject("game", game);
         return modelAndView;
     }
+
 }

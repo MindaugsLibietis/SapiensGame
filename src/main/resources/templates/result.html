@@ -5,20 +5,25 @@
     <title>Title</title>
 </head>
 <body>
-    <tr>
-        <th>first try:</th>
-        <td th:text="${game.digit1}"></td>
-        <td th:text="${game.digit2}"></td>
-        <td th:text="${game.digit3}"></td>
-        <td th:text="${game.digit4}"></td>
-    </tr>
-    <tr>
-        <th>m:</th>
-        <td th:text="${game.attempts[0].m}"></td>
-    </tr>
-    <tr>
-        <th>p:</th>
-        <td th:text="${game.attempts[0].p}"></td>
-    </tr>
+
+    <div th:object="${game.attempts}" border="1">
+        <tr th:each="attempt :${game.attempts}">
+            <th>m:</th>
+            <td  th:text="${attempt.m}"></td>
+            <th>p:</th>
+            <td  th:text="${attempt.p}"></td>
+            <th>inputs:</th>
+            <td th:each="item : ${attempt.inputs}" th:text="${item}"></td>
+        </tr>
+    </div>
+    <div>Please enter 4 digits: </div>
+    <form action="play" method="post">
+        <input type="text" name="digit1"/>
+        <input type="text" name="digit2"/>
+        <input type="text" name="digit3"/>
+        <input type="text" name="digit4"/>
+        <input type="submit" value="Submit"/>
+    </form>
+
 </body>
 </html>
