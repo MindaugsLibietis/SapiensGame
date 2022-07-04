@@ -3,7 +3,7 @@ package com.example.demo;
 import java.util.Collections;
 import java.util.List;
 
-public class  Attempt {
+public class Attempt {
     int m;
     int p;
     List<Integer> inputs;

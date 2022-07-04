@@ -2,12 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>gameScreen</title>
+    <link th:href="@{/static/css/custom.css}" rel="stylesheet"/>
+    <title>GameScreen</title>
 </head>
 <body>
 <div>Sveiks,</div>
 <div th:text="${user.name}"></div>
-<div>Please enter 4 digits: </div>
+<div>Please enter 4 digits:</div>
 <form action="play" method="post">
     <input type="text" name="digit1"/>
     <input type="text" name="digit2"/>

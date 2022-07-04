@@ -51,6 +51,19 @@ public class TheGame {
     private Integer digit3;
     private Integer digit4;
 
+    public void generateNumber() {
+        for (int i = 0; i < 10; i++) {
+            secretNum.add(i);
+        }
+        //skaitlus mainam ar vietam un izdzesam liekos
+        Collections.shuffle(secretNum);
+        secretNum.remove(9);
+        secretNum.remove(8);
+        secretNum.remove(7);
+        secretNum.remove(6);
+        secretNum.remove(5);
+        secretNum.remove(4);
+    }
     public void play() {
 
         List<Integer> inputs = new ArrayList<>();
@@ -92,7 +105,7 @@ public class TheGame {
 //        inputs.removeAll(inputs);
     }
 
-    public void generateNumber() {
+    /*public void generateNumber() {
         for (int i = 0; i < 10; i++) {
             secretNum.add(i);
         }
@@ -104,5 +117,5 @@ public class TheGame {
         secretNum.remove(6);
         secretNum.remove(5);
         secretNum.remove(4);
-    }
+    }*/
 }
