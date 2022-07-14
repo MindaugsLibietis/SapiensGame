@@ -1,12 +1,12 @@
 package com.example.demo;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Cookie;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class PersonController {
@@ -25,15 +25,16 @@ public class PersonController {
         }*/
         return modelAndView;
     }
-
-    @RequestMapping(value = "/play", method = RequestMethod.POST)
-    public ModelAndView attempt(@ModelAttribute TheGame game) {
+    @RequestMapping(value = "/play", method = {RequestMethod.GET, RequestMethod.POST})
+    public ModelAndView attempt(@ModelAttribute TheGame game, HttpServletResponse response) {
         game.generateNumber();
         game.play();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("result");
         modelAndView.addObject("game", game);
+        //viena liela probza zemāk
+/*        Cookie cookie = new Cookie("jsonAttempt", );
+        response.addCookie(cookie);*/
         return modelAndView;
     }
-
 }

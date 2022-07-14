@@ -1,13 +1,14 @@
 package com.example.demo;
-
-import org.springframework.boot.SpringApplication;
-
+import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
 public class TheGame {
+    public String getJson(){
+        return getJson();
+    }
+
     public Integer getDigit1() {
         return digit1;
     }
@@ -96,26 +97,17 @@ public class TheGame {
         }
         x++;
         Attempt attempt = new Attempt(m, p, inputs);
+        Gson gson = new Gson();
+        String jsonAttempt = gson.toJson(attempt);
+        System.out.println("jsonAttempt: " + jsonAttempt);
         System.out.println(attempt.getM());
         System.out.println(attempt.getP());
-        System.out.println(attempt.getInputs());
+        System.out.println("inputs: " + attempt.getInputs());
+        System.out.println("secret: " + secretNum);
         this.attempts.add(attempt);
         m = 0;
         p = 0;
 //        inputs.removeAll(inputs);
     }
-
-    /*public void generateNumber() {
-        for (int i = 0; i < 10; i++) {
-            secretNum.add(i);
-        }
-        //skaitlus mainam ar vietam un izdzesam liekos
-        Collections.shuffle(secretNum);
-        secretNum.remove(9);
-        secretNum.remove(8);
-        secretNum.remove(7);
-        secretNum.remove(6);
-        secretNum.remove(5);
-        secretNum.remove(4);
-    }*/
 }
+
