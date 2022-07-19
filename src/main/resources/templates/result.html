@@ -17,13 +17,17 @@
         <td th:each="item : ${attempt.inputs}" th:text="${item}"></td>
         </tr>
 </form>
-<div>Please enter 4 digits:</div>
+<!--<form th:object="${game}">
+    <th>lastinput:</th>
+    <td th:each="${game.jsonAttempt}"></td>
+</form>-->
+<div class="thick">Please enter 4 digits:</div>
 <form action="play" method="post">
-    <input type="text" name="digit1"/>
-    <input type="text" name="digit2"/>
-    <input type="text" name="digit3"/>
-    <input type="text" name="digit4"/>
-    <input type="submit" value="Submit"/>
+    <input class="inputfield" type="text" name="digit1"/>
+    <input class="inputfield" type="text" name="digit2"/>
+    <input class="inputfield" type="text" name="digit3"/>
+    <input class="inputfield" type="text" name="digit4"/>
+    <input class="SubmitBtn" type="submit" value="Submit"/>
 </form>
 <br>m - number of matching digits but not on the right places
 <br>p - number of matching digits on exact places

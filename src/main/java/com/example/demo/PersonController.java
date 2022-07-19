@@ -10,6 +10,10 @@ import java.util.List;
 
 @Controller
 public class PersonController {
+
+    private List<Attempt> attempts = new ArrayList<>();
+    private List<Integer> secretNum = new ArrayList<>();
+
     @GetMapping
     String getPeople(Model model) {
         model.addAttribute("something", "Welcome to this guessing game");
@@ -26,15 +30,19 @@ public class PersonController {
         return modelAndView;
     }
     @RequestMapping(value = "/play", method = {RequestMethod.GET, RequestMethod.POST})
-    public ModelAndView attempt(@ModelAttribute TheGame game, HttpServletResponse response) {
-        game.generateNumber();
-        game.play();
+    public ModelAndView attempt(@ModelAttribute TheGame game, Json json, HttpServletResponse response) {
+        if (secretNum.isEmpty()) {
+            System.out.println(secretNum + "ayo");
+            secretNum = game.generateNumber();
+        }
+
+        game.play(secretNum);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("result");
         modelAndView.addObject("game", game);
-        //viena liela probza zemāk
-/*        Cookie cookie = new Cookie("jsonAttempt", );
-        response.addCookie(cookie);*/
+//        modelAndView.addObject( "jsonAttempt", json.thisJson);
+//        Cookie cookie = new Cookie("jsonAttempt", json.getJson());
+//        response.addCookie(cookie);
         return modelAndView;
     }
 }

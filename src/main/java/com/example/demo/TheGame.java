@@ -5,10 +5,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class TheGame {
-    public String getJson(){
-        return getJson();
-    }
-
     public Integer getDigit1() {
         return digit1;
     }
@@ -44,15 +40,14 @@ public class TheGame {
     public List<Attempt> getAttempts() {
         return attempts;
     }
-
-    private List<Integer> secretNum = new ArrayList<>();
     private List<Attempt> attempts = new ArrayList<>();
     private Integer digit1;
     private Integer digit2;
     private Integer digit3;
     private Integer digit4;
 
-    public void generateNumber() {
+    public List<Integer> generateNumber() {
+        List<Integer> secretNum = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             secretNum.add(i);
         }
@@ -64,8 +59,9 @@ public class TheGame {
         secretNum.remove(6);
         secretNum.remove(5);
         secretNum.remove(4);
+        return secretNum;
     }
-    public void play() {
+    public void play(List<Integer> secretNum) {
 
         List<Integer> inputs = new ArrayList<>();
         inputs.add(digit1);

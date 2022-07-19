@@ -1,4 +1,24 @@
 body {
   background-color: lightblue;
   text-align: center;
+  margin-top: 70px;
 }
+
+.people {
+    width: 110px;
+}
+
+.SubmitBtn {
+    height: 30px;
+    width: 65px;
+}
+
+.inputfield {
+    width: 40px;
+}
+
+.thick {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
