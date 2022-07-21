@@ -36,11 +36,6 @@ public class TheGame {
     public void setDigit4(Integer digit4) {
         this.digit4 = digit4;
     }
-
-    public List<Attempt> getAttempts() {
-        return attempts;
-    }
-    private List<Attempt> attempts = new ArrayList<>();
     private Integer digit1;
     private Integer digit2;
     private Integer digit3;
@@ -61,8 +56,8 @@ public class TheGame {
         secretNum.remove(4);
         return secretNum;
     }
-    public void play(List<Integer> secretNum) {
 
+    public Attempt play(List<Integer> secretNum) {
         List<Integer> inputs = new ArrayList<>();
         inputs.add(digit1);
         inputs.add(digit2);
@@ -93,17 +88,10 @@ public class TheGame {
         }
         x++;
         Attempt attempt = new Attempt(m, p, inputs);
-        Gson gson = new Gson();
-        String jsonAttempt = gson.toJson(attempt);
-        System.out.println("jsonAttempt: " + jsonAttempt);
-        System.out.println(attempt.getM());
-        System.out.println(attempt.getP());
+
         System.out.println("inputs: " + attempt.getInputs());
         System.out.println("secret: " + secretNum);
-        this.attempts.add(attempt);
-        m = 0;
-        p = 0;
-//        inputs.removeAll(inputs);
+        return attempt;
     }
 }
 

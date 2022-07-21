@@ -7,20 +7,7 @@
     <title>Results</title>
 </head>
 <body>
-<form th:object="${attempts}">
-    <tr th:each="attempt : ${attempts}">
-        <th>m:</th>
-        <td th:text="${attempt.m}"></td>
-        <th>p:</th>
-        <td th:text="${attempt.p}"></td>
-        <th>inputs:</th>
-        <td th:each="item : ${attempt.inputs}" th:text="${item}"></td>
-        <span th:if="${attempt.p == 4}"><br>Congrats, you Won the game</span>
-        <br>
-    </tr>
-</form>
-<div th:text="${test}"/>
-<div class="thick">Please enter 4 digits:</div>
+<h1>Game Over, Try again</h1>
 <form action="play" method="post">
     <input class="inputfield" type="text" name="digit1"/>
     <input class="inputfield" type="text" name="digit2"/>
@@ -28,7 +15,5 @@
     <input class="inputfield" type="text" name="digit4"/>
     <input class="SubmitBtn" type="submit" value="Submit"/>
 </form>
-<br>m - number of matching digits but not on the right places
-<br>p - number of matching digits on exact places
 </body>
 </html>

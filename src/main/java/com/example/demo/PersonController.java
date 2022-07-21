@@ -6,13 +6,17 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Cookie;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
 public class PersonController {
 
-    private List<Attempt> attempts = new ArrayList<>();
+    public List<Attempt> attempts = new ArrayList<>();
     private List<Integer> secretNum = new ArrayList<>();
+    boolean isRight = false;
+    boolean gameOver = false;
+    int counter = 0;
 
     @GetMapping
     String getPeople(Model model) {
@@ -24,25 +28,31 @@ public class PersonController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("gameScreen");
         modelAndView.addObject("user", user);
-       /* if (user.getName() == null || user.getName() == ""){
-            return
-        }*/
         return modelAndView;
     }
-    @RequestMapping(value = "/play", method = {RequestMethod.GET, RequestMethod.POST})
-    public ModelAndView attempt(@ModelAttribute TheGame game, Json json, HttpServletResponse response) {
+    @RequestMapping(value = "/play", method = {RequestMethod.POST})
+    public ModelAndView execute(@ModelAttribute TheGame game) {
         if (secretNum.isEmpty()) {
-            System.out.println(secretNum + "ayo");
             secretNum = game.generateNumber();
         }
+        /*if (){
 
-        game.play(secretNum);
+        }*/
+        Attempt previousAttempt = game.play(secretNum);
+        counter ++;
+        if (counter >= 8) {
+            gameOver = true;
+            secretNum = new ArrayList<>();
+            counter = 0;
+            attempts = new ArrayList<>();
+            ModelAndView tryAgainScreen = new ModelAndView();
+            tryAgainScreen.setViewName("gameOver");
+            return tryAgainScreen;
+        }
+        attempts.add(previousAttempt);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("result");
-        modelAndView.addObject("game", game);
-//        modelAndView.addObject( "jsonAttempt", json.thisJson);
-//        Cookie cookie = new Cookie("jsonAttempt", json.getJson());
-//        response.addCookie(cookie);
+        modelAndView.addObject("attempts", attempts);
         return modelAndView;
     }
 }
