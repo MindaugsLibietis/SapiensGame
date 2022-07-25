@@ -13,12 +13,15 @@ body {
     width: 65px;
 }
 
-.inputfield {
+.inputField {
     width: 40px;
 }
 
-.thick {
+.bold {
     margin-top: 15px;
+    font-weight: bold;
+}
+.inputs {
     font-weight: bold;
 }
 

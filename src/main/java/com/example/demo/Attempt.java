@@ -31,7 +31,6 @@ public class Attempt {
     public List<Integer> getInputs() {
         return inputs;
     }
-
     public void setInputs(List<Integer> inputs) {
         this.inputs = inputs;
     }

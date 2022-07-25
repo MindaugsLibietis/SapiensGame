@@ -1,5 +1,4 @@
 package com.example.demo;
-import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -46,7 +45,7 @@ public class TheGame {
         for (int i = 0; i < 10; i++) {
             secretNum.add(i);
         }
-        //skaitlus mainam ar vietam un izdzesam liekos
+        //skaitlus mainu ar vietam un izdzesu liekos
         Collections.shuffle(secretNum);
         secretNum.remove(9);
         secretNum.remove(8);
@@ -64,17 +63,11 @@ public class TheGame {
         inputs.add(digit3);
         inputs.add(digit4);
         int x = 0;
-        boolean won = false;
         int m = 0, p = 0;
         //pārbaudam vai skaitļi ir vienādi un atrodas konkrētajā pozīcijā
         for (int i = 0; i < secretNum.size(); i++) {
             if (secretNum.get(i).equals(inputs.get(i))) {
                 p++;
-                if (p == 4) {
-                    System.out.println("Congrats, you won");
-                    won = true;
-                    break;
-                }
             }
         }
         for (int i = 0; i < secretNum.size(); i++) {
@@ -88,9 +81,8 @@ public class TheGame {
         }
         x++;
         Attempt attempt = new Attempt(m, p, inputs);
-
-        System.out.println("inputs: " + attempt.getInputs());
-        System.out.println("secret: " + secretNum);
+/*        System.out.println("inputs: " + attempt.getInputs());
+        System.out.println("secret: " + secretNum);*/
         return attempt;
     }
 }
