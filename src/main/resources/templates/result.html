@@ -9,9 +9,9 @@
 <body>
 <form th:object="${attempts}">
     <tr th:each="attempt : ${attempts}">
-        <th>m:</th>
+        <th>M:</th>
         <td th:text="${attempt.m}"></td>
-        <th>p:</th>
+        <th>P:</th>
         <td th:text="${attempt.p}"></td>
         <th>inputs:</th>
         <td th:each="item : ${attempt.inputs}" th:text="${item}"></td>
@@ -26,7 +26,7 @@
     <input class="inputField" type="text" name="digit4"/>
     <input class="SubmitBtn" type="submit" value="Submit"/>
 </form>
-<br>m - number of matching digits but not on the right places
-<br>p - number of matching digits on exact places
+<br>M - number of matching digits but not on the right places
+<br>P - number of matching digits on exact places
 </body>
 </html>

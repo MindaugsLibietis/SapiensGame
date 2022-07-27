@@ -48,6 +48,7 @@ public class PersonController {
         attempts.add(previousAttempt);
         if (secretNum.equals(attempts.get(attempts.size()-1).inputs)) {
             isRight = true;
+            counter = 0;
             secretNum = new ArrayList<>();
             attempts = new ArrayList<>();
             ModelAndView gameWonScreen = new ModelAndView();
