@@ -8,6 +8,8 @@
 </head>
 <body>
 <h1>Game Over, Try again</h1>
+<h2>Correct number was </h2>
+<span th:text="${secretNum}"/>
 <h2>Enter your first guess to play the game again</h2>
 <form action="play" method="post">
     <input class="inputField" type="text" name="digit1"/>

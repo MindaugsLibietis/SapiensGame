@@ -1,4 +1,5 @@
 package com.example.demo;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -35,6 +36,7 @@ public class TheGame {
     public void setDigit4(Integer digit4) {
         this.digit4 = digit4;
     }
+
     private Integer digit1;
     private Integer digit2;
     private Integer digit3;
@@ -81,8 +83,6 @@ public class TheGame {
         }
         x++;
         Attempt attempt = new Attempt(m, p, inputs);
-/*        System.out.println("inputs: " + attempt.getInputs());
-        System.out.println("secret: " + secretNum);*/
         return attempt;
     }
 }

@@ -1,4 +1,5 @@
 package com.example.demo;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class Attempt {
         this.p = p;
         this.inputs = inputs;
     }
+
     public int getM() {
         return m;
     }
@@ -31,6 +33,7 @@ public class Attempt {
     public List<Integer> getInputs() {
         return inputs;
     }
+
     public void setInputs(List<Integer> inputs) {
         this.inputs = inputs;
     }

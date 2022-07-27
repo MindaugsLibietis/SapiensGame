@@ -1,10 +1,10 @@
 package com.example.demo;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -15,6 +15,7 @@ public class PersonController {
     boolean isRight = false;
     boolean gameOver = false;
     int counter = 0;
+
     @GetMapping
     String getPeople(Model model) {
         model.addAttribute("something", "Welcome to this guessing game");
@@ -35,18 +36,19 @@ public class PersonController {
             secretNum = game.generateNumber();
         }
         Attempt previousAttempt = game.play(secretNum);
-        counter ++;
+        counter++;
         if (counter >= 8) {
             gameOver = true;
+            ModelAndView tryAgainScreen = new ModelAndView();
+            tryAgainScreen.addObject("secretNum", secretNum.toString());
             secretNum = new ArrayList<>();
             counter = 0;
             attempts = new ArrayList<>();
-            ModelAndView tryAgainScreen = new ModelAndView();
             tryAgainScreen.setViewName("gameOver");
             return tryAgainScreen;
         }
         attempts.add(previousAttempt);
-        if (secretNum.equals(attempts.get(attempts.size()-1).inputs)) {
+        if (secretNum.equals(attempts.get(attempts.size() - 1).inputs)) {
             isRight = true;
             counter = 0;
             secretNum = new ArrayList<>();

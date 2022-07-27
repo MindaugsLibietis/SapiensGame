@@ -1,11 +1,10 @@
 # Welcome to guessing game
 
-#### To run this game open RUN.bat file, go to your faworite browser and enter http://localhost:8080, 
-#### or enter file location ..\TestSapiens and write java -jar demo-0.0.1-SNAPSHOT.jar and in browser enter http://localhost:8080
+#### To run this game open RUN.bat file, go to your favourite browser and enter http://localhost:8080
 
 ## Game rules will be explained in index page of project and down bellow
 
-###Game rules:
+### Game rules:
 
 * Program chooses a random secret number with 4 digits.
 * All digits in the secret number are different.
