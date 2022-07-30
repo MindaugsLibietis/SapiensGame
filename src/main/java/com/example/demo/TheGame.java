@@ -36,7 +36,6 @@ public class TheGame {
     public void setDigit4(Integer digit4) {
         this.digit4 = digit4;
     }
-
     private Integer digit1;
     private Integer digit2;
     private Integer digit3;
